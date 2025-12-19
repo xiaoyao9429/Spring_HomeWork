@@ -7,7 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpglApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(SpglApplication.class, args);
+       
+
+
     }
 
 }

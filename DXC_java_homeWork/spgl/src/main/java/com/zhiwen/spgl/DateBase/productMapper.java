@@ -10,7 +10,7 @@ public interface productMapper {
     @Select("select * from product")
         List<product> selectAll();
 
-    @Insert("insert into product(name, price, description, product_image, stock, category_id) values(#{name}, #{price}, #{description}, #{product_image}, #{stock}, #{category_id})")
+    @Insert("insert into product(id, name, price, description, product_image, stock, category_id) values(#{id}, #{name}, #{price}, #{description}, #{product_image}, #{stock}, #{category_id})")
     int insert(product product);
 
     @Select("select * from product where id = #{id}")

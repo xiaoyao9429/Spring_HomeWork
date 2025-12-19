@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理商品 - 商品管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container">
+            <h1>商品管理系统</h1>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="product-list.html">商品列表</a></li>
+                <li><a href="add-product.html">添加商品</a></li>
+                <li><a href="manage-products.html">管理商品</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main">
+        <div class="container">
+            <h2>商品管理</h2>
+            <a href="add-product.html" class="btn btn-success">添加新商品</a>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>商品名称</th>
+                        <th>价格</th>
+                        <th>库存</th>
+                        <th>分类</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>智能手机</td>
+                        <td>¥2999.00</td>
+                        <td>50</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=1" class="btn">查看</a>
+                            <a href="edit-product.html?id=1" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>笔记本电脑</td>
+                        <td>¥5999.00</td>
+                        <td>30</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=2" class="btn">查看</a>
+                            <a href="edit-product.html?id=2" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>无线耳机</td>
+                        <td>¥899.00</td>
+                        <td>100</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=3" class="btn">查看</a>
+                            <a href="edit-product.html?id=3" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>智能手表</td>
+                        <td>¥1299.00</td>
+                        <td>45</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=4" class="btn">查看</a>
+                            <a href="edit-product.html?id=4" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>智能电视</td>
+                        <td>¥3999.00</td>
+                        <td>25</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=5" class="btn">查看</a>
+                            <a href="edit-product.html?id=5" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>游戏主机</td>
+                        <td>¥2699.00</td>
+                        <td>40</td>
+                        <td>电子产品</td>
+                        <td>
+                            <a href="product-detail.html?id=6" class="btn">查看</a>
+                            <a href="edit-product.html?id=6" class="btn btn-warning">编辑</a>
+                            <a href="#" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 商品管理系统.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载商品列表
+            loadProducts();
+        });
+        
+        // 加载商品列表函数
+        function loadProducts() {
+            // 获取商品列表
+            fetch('/products')
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200 && data.data) {
+                    const products = data.data;
+                    
+                    // 获取分类数据
+                    fetch('/categories')
+                    .then(categoryResponse => categoryResponse.json())
+                    .then(categoryData => {
+                        if (categoryData.code === 200 && categoryData.data) {
+                            const categories = categoryData.data;
+                            const tableBody = document.querySelector('table.table tbody');
+                            
+                            // 清空现有表格行
+                            tableBody.innerHTML = '';
+                            
+                            // 动态生成表格行
+                            products.forEach(product => {
+                                const row = document.createElement('tr');
+                                
+                                // 获取分类名称
+                                const category = categories.find(cat => cat.id === product.category_id);
+                                const categoryName = category ? category.category_name : '未分类';
+                                
+                                row.innerHTML = `
+                                    <td>${product.id}</td>
+                                    <td>${product.name}</td>
+                                    <td>¥${product.price.toFixed(2)}</td>
+                                    <td>${product.stock}</td>
+                                    <td>${categoryName}</td>
+                                    <td>
+                                        <a href="product-detail.html?id=${product.id}" class="btn">查看</a>
+                                        <a href="edit-product.html?id=${product.id}" class="btn btn-warning">编辑</a>
+                                        <button class="btn btn-danger delete-btn" data-id="${product.id}">删除</button>
+                                    </td>
+                                `;
+                                
+                                tableBody.appendChild(row);
+                            });
+                            
+                            // 添加删除按钮事件监听
+                            const deleteButtons = document.querySelectorAll('.delete-btn');
+                            deleteButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const productId = parseInt(this.getAttribute('data-id'));
+                                    deleteProduct(productId);
+                                });
+                            });
+                            
+                            // 如果没有商品，显示提示
+                            if (products.length === 0) {
+                                tableBody.innerHTML = '<tr><td colspan="6" style="text-align: center;">暂无商品数据</td></tr>';
+                            }
+                        } else {
+                            console.error('获取分类数据失败:', categoryData.msg);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('获取分类数据时发生错误:', error);
+                    });
+                } else {
+                    console.error('获取商品列表失败:', data.msg);
+                }
+            })
+            .catch(error => {
+                console.error('获取商品列表时发生错误:', error);
+            });
+        }
+        
+        // 删除商品函数
+        function deleteProduct(id) {
+            // 确认删除
+            if (confirm('确定要删除这个商品吗？')) {
+                // 发送删除请求
+                fetch(`/products?id=${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        alert('商品删除成功');
+                        // 重新加载商品列表
+                        loadProducts();
+                    } else {
+                        alert('商品删除失败: ' + data.msg);
+                    }
+                })
+                .catch(error => {
+                    console.error('删除商品时发生错误:', error);
+                    alert('删除商品时发生错误');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑商品 - 商品管理系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container">
+            <h1>商品管理系统</h1>
+        </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="product-list.html">商品列表</a></li>
+                <li><a href="manage-products.html">管理商品</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main">
+        <div class="container">
+            <h2>编辑商品</h2>
+            
+            <form class="form" action="#" method="post">
+                <input type="hidden" name="id" value="1">
+                
+                <div class="form-group">
+                    <label for="product-name">商品名称</label>
+                    <input type="text" id="product-name" name="name" value="智能手机" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-price">商品价格</label>
+                    <input type="number" id="product-price" name="price" step="0.01" min="0" value="2999.00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description">商品描述</label>
+                    <textarea id="product-description" name="description" rows="5" required>
+这是一款高性能智能手机，采用最新的处理器技术，拥有6.5英寸高清显示屏，分辨率达到2K级别。内置大容量电池，支持快速充电，续航时间长达12小时。摄像头系统采用多镜头设计，支持4K视频录制。机身采用玻璃材质，支持无线充电和防水功能。</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-image">商品图片URL</label>
+                    <input type="text" id="product-image" name="product_image" value="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-stock">库存数量</label>
+                    <input type="number" id="product-stock" name="stock" min="0" value="50" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-category">商品分类</label>
+                    <select id="product-category" name="category_id" required>
+                        <option value="">请选择分类</option>
+                        <!-- 分类将通过JavaScript动态加载 -->
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">保存修改</button>
+                    <a href="product-detail.html?id=1" class="btn btn-danger">取消</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 商品管理系统.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 从URL中获取商品ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            if (productId) {
+                // 加载商品详情
+                loadProductDetails(parseInt(productId));
+            } else {
+                alert('商品ID不存在');
+            }
+            
+            // 获取表单元素
+            const form = document.querySelector('form.form');
+            
+            // 表单提交事件
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const formData = new FormData(form);
+                
+                // 转换为JSON
+                const productData = {};
+                formData.forEach((value, key) => {
+                    productData[key] = value;
+                });
+                
+                // 发送PUT请求到后端更新商品
+                fetch('/products', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(productData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        alert('商品修改成功');
+                        window.location.href = `product-detail.html?id=${productId}`;
+                    } else {
+                        alert('商品修改失败: ' + data.msg);
+                    }
+                })
+                .catch(error => {
+                    console.error('修改商品时出错:', error);
+                    alert('修改商品时出错，请稍后重试');
+                });
+            });
+        });
+        
+        // 加载商品详情函数
+        function loadProductDetails(productId) {
+            // 发送GET请求到后端获取商品详情
+            fetch(`/products/${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200 && data.data) {
+                    const product = data.data;
+                    
+                    // 填充表单数据
+                    document.getElementById('product-name').value = product.name;
+                    document.getElementById('product-price').value = product.price;
+                    document.getElementById('product-description').value = product.description;
+                    document.getElementById('product-image').value = product.product_image || '';
+                    document.getElementById('product-stock').value = product.stock;
+                    
+                    // 设置商品ID（隐藏字段）
+                    document.querySelector('input[name="id"]').value = product.id;
+                    
+                    // 更新取消按钮链接
+                    document.querySelector('.btn-danger').href = `product-detail.html?id=${product.id}`;
+                    
+                    // 加载分类并选中当前分类
+                    loadCategories(product.category_id);
+                } else {
+                    alert('获取商品详情失败: ' + data.msg);
+                }
+            })
+            .catch(error => {
+                console.error('获取商品详情时出错:', error);
+                alert('获取商品详情时出错，请稍后重试');
+            });
+        }
+        
+        // 加载商品分类函数
+        function loadCategories(selectedCategoryId = null) {
+            const categorySelect = document.getElementById('product-category');
+            
+            // 发送GET请求到后端获取分类数据
+            fetch('/categories')
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200 && data.data) {
+                    // 清空现有的选项（保留第一个"请选择分类"选项）
+                    categorySelect.innerHTML = '<option value="">请选择分类</option>';
+                    
+                    // 动态生成分类选项
+                    data.data.forEach(category => {
+                        const option = document.createElement('option');
+                        option.value = category.id;
+                        option.textContent = category.category_name;
+                        
+                        // 如果是当前商品的分类，则选中
+                        if (selectedCategoryId === category.id) {
+                            option.selected = true;
+                        }
+                        
+                        categorySelect.appendChild(option);
+                    });
+                } else {
+                    console.error('获取分类数据失败:', data.msg);
+                }
+            })
+            .catch(error => {
+                console.error('加载分类时出错:', error);
+            });
+        }
+    </script>
+</body>
+</html>

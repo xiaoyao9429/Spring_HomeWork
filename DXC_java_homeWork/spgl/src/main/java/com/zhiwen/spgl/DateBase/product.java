@@ -12,7 +12,7 @@ public class product {
 
     Integer id;
     String name;
-    double price;
+    Double price;
     String description;
     String product_image;
     Integer stock;
