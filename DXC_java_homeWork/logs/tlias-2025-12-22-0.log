@@ -1,0 +1,1194 @@
+2025-12-22 09:26:46 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 16864 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:26:46 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:26:47 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:26:47 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:26:47 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:26:47 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:26:47 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1040 ms
+2025-12-22 09:26:47 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:26:47 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:26:47 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:26:47 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.157 seconds (process running for 3.225)
+2025-12-22 09:26:53 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:26:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:26:53 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 4 ms
+2025-12-22 09:26:53 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 09:26:53 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:26:53 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:26:55 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]-Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+### The error may exist in com/zhiwen/spgl/DateBase/productMapper.java (best guess)
+### The error may involve com.zhiwen.spgl.DateBase.productMapper.selectAll
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection] with root cause
+com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:76)
+	at com.mysql.cj.protocol.a.authentication.CachingSha2PasswordPlugin.nextAuthenticationStep(CachingSha2PasswordPlugin.java:122)
+	at com.mysql.cj.protocol.a.authentication.CachingSha2PasswordPlugin.nextAuthenticationStep(CachingSha2PasswordPlugin.java:40)
+	at com.mysql.cj.protocol.a.NativeAuthenticationProvider.proceedHandshakeWithPluggableAuthentication(NativeAuthenticationProvider.java:436)
+	at com.mysql.cj.protocol.a.NativeAuthenticationProvider.connect(NativeAuthenticationProvider.java:206)
+	at com.mysql.cj.protocol.a.NativeProtocol.connect(NativeProtocol.java:1332)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:155)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:964)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:83)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:70)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:348)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:64)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:348)
+	at jdk.proxy2/jdk.proxy2.$Proxy69.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:209)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.selectAll(Unknown Source)
+	at com.zhiwen.spgl.Service.Implement.ProductServiceImp.selectAllProduct(ProductServiceImp.java:19)
+	at com.zhiwen.spgl.Controller.productController.productList(productController.java:27)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-22 09:29:37 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:29:37 [http-nio-8080-exec-8] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:29:37 [http-nio-8080-exec-8] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16d9e94b
+2025-12-22 09:29:37 [http-nio-8080-exec-8] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:29:39 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:29:39 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:29:39 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:29:43 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:29:47 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:29:47 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:29:47 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:29:48 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:29:48 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:29:59 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:30:02 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:30:02 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:30:02 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:30:04 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:30:04 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:30:09 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1011
+2025-12-22 09:30:09 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:31:17 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 09:31:17 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 09:31:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 09:31:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 09:36:17 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 892 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:36:17 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:36:18 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:36:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:36:18 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:36:18 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:36:18 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1087 ms
+2025-12-22 09:36:18 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:36:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:36:18 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:36:18 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.197 seconds (process running for 3.301)
+2025-12-22 09:36:25 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:36:25 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:36:25 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 09:36:25 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1011
+2025-12-22 09:36:25 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:36:26 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66649d24
+2025-12-22 09:36:26 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:36:26 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:29 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1011
+2025-12-22 09:36:29 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:32 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:36:40 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:36:40 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:41 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:41 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:41 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:36:42 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:36:51 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 09:36:51 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:37:55 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 09:37:55 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:37:59 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:37:59 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:37:59 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:43 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:38:43 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:45 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:38:45 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:50 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:50 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:38:50 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:52 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:38:52 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:38:53 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:38:53 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:39:26 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:39:26 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:39:26 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:39:30 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 09:39:30 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 09:39:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 09:39:30 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 09:39:34 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 25380 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:39:34 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:39:35 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:39:35 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:39:35 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:39:35 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:39:35 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1096 ms
+2025-12-22 09:39:36 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:39:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:39:37 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:39:37 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 3.055 seconds (process running for 4.271)
+2025-12-22 09:40:51 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:40:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:40:51 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 09:40:51 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 09:40:51 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:40:51 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:40:52 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20814f6f
+2025-12-22 09:40:52 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:40:58 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:40:58 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:40:58 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:41:00 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:41:00 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:41:04 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:41:04 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:41:54 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:43:18 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:18 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:43:18 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:20 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:43:20 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:28 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:43:28 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:38 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:43:38 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:38 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:40 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:40 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:43:40 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:41 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1003
+2025-12-22 09:43:41 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:43:45 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:43:45 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:44:27 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:44:45 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 09:44:45 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 09:44:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 09:44:45 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 09:45:24 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 6628 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:45:24 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:45:25 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:45:25 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:45:25 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:45:25 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:45:25 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1131 ms
+2025-12-22 09:45:25 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:45:25 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:45:25 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:45:25 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.272 seconds (process running for 3.514)
+2025-12-22 09:45:39 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:45:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:45:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 09:45:39 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 09:45:39 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:45:39 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:45:40 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@be9d233
+2025-12-22 09:45:40 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:45:43 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:45:43 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:45:43 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:45:46 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:45:46 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:45:49 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1012
+2025-12-22 09:45:49 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:08 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:46:08 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:09 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:10 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:10 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:46:10 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:16 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:46:16 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:18 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:46:18 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:23 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 09:46:24 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 09:46:31 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:31 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:46:31 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:33 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1008
+2025-12-22 09:46:33 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:36 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:36 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:46:36 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:46:44 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1019
+2025-12-22 09:46:44 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:47:31 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 09:47:31 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 09:47:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 09:47:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 09:51:51 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 22492 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:51:51 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:51:52 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:51:52 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:51:52 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:51:52 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:51:52 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1082 ms
+2025-12-22 09:51:52 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:51:53 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:51:53 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:51:53 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.103 seconds (process running for 3.128)
+2025-12-22 09:51:57 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:51:57 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:51:57 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 09:51:57 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:51:57 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:51:57 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:51:58 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dd11cb9
+2025-12-22 09:51:58 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:51:58 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:00 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:52:00 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:02 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:52:02 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:05 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:52:05 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:07 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:52:07 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:07 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:08 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:52:08 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:10 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:52:10 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:52:13 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 09:52:13 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 09:52:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 09:52:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 09:54:45 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 3004 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 09:54:45 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 09:54:46 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 09:54:46 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:54:46 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 09:54:46 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 09:54:46 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1055 ms
+2025-12-22 09:54:46 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 09:54:47 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 09:54:47 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 09:54:47 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.816 seconds (process running for 3.951)
+2025-12-22 09:54:47 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 09:54:47 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 09:54:47 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 4 ms
+2025-12-22 09:54:48 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:54:48 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:54:48 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 09:54:48 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@448c0ab1
+2025-12-22 09:54:48 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 09:54:49 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:54:52 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:54:52 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:54:55 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:54:55 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:55:02 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:55:02 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:55:08 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:55:08 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:55:08 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:55:11 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:55:11 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:55:13 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:55:13 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:59:46 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:59:46 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:59:47 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 09:59:47 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:59:49 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 09:59:49 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 09:59:51 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 09:59:51 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:28 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:10:28 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:10:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:10:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:10:32 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 16680 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:10:32 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:10:33 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:10:33 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:10:33 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:10:33 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:10:33 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1074 ms
+2025-12-22 10:10:33 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:10:33 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:10:33 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:10:33 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.134 seconds (process running for 3.132)
+2025-12-22 10:10:39 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:10:39 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:10:39 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2025-12-22 10:10:39 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:39 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:10:39 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:10:39 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c088805
+2025-12-22 10:10:39 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:10:40 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:42 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:10:42 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:43 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:10:43 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:47 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:10:47 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:10:57 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 10:10:58 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:11:00 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:00 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:11:00 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:02 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:11:02 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:03 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:11:03 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:16 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:16 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:11:16 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:17 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 10:11:17 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:21 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:11:41 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:11:42 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:42 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:11:42 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:44 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:11:44 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:45 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:11:45 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:47 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第4页
+2025-12-22 10:11:47 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:49 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:11:49 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:56 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:11:56 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:11:56 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:12:01 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1003
+2025-12-22 10:12:01 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:12:36 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:12:36 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:12:36 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:12:53 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:12:53 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:12:53 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:12:53 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:12:57 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 20180 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:12:57 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:12:58 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:12:58 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:12:58 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:12:58 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:12:59 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1142 ms
+2025-12-22 10:12:59 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:13:00 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:13:00 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:13:00 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 3.448 seconds (process running for 4.602)
+2025-12-22 10:13:03 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:13:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:13:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 0 ms
+2025-12-22 10:13:03 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 10:13:03 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:13:03 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:13:04 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32a02ff5
+2025-12-22 10:13:04 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:13:16 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1003
+2025-12-22 10:13:16 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:13:22 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:13:22 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:13:22 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:13:29 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:13:29 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:13:32 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:13:32 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:13:39 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:13:39 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:17:06 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1008
+2025-12-22 10:17:06 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:17:32 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-22 10:17:32 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:17:36 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:17:36 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:17:36 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:37 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 10:20:37 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:39 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:20:40 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1005
+2025-12-22 10:20:40 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:42 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:20:42 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:42 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:43 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1005
+2025-12-22 10:20:43 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:46 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1009
+2025-12-22 10:20:46 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:49 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1006
+2025-12-22 10:20:49 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:20:51 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1007
+2025-12-22 10:20:51 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:22:02 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:22:02 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:22:02 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:22:28 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:22:28 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:22:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:22:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:26:43 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 5652 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:26:43 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:26:44 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:26:44 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:26:44 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:26:44 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:26:44 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 989 ms
+2025-12-22 10:26:44 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:26:45 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:26:45 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:26:45 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.039 seconds (process running for 3.21)
+2025-12-22 10:26:56 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:26:56 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:26:56 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 10:26:56 [http-nio-8080-exec-1] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver-Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: "numbers"]
+2025-12-22 10:27:11 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:27:11 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:27:35 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 22116 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:27:35 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:27:36 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:27:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:27:36 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:27:36 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:27:36 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 997 ms
+2025-12-22 10:27:36 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:27:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:27:36 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:27:36 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.009 seconds (process running for 2.953)
+2025-12-22 10:27:42 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:27:42 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:27:42 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 6 ms
+2025-12-22 10:27:42 [http-nio-8080-exec-2] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver-Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Method parameter 'id': Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: "numbers"]
+2025-12-22 10:27:58 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:27:58 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:28:02 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 24332 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:28:02 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:28:03 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:28:03 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:28:03 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:28:03 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:28:03 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 971 ms
+2025-12-22 10:28:04 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:28:04 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:28:04 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:28:04 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 1.936 seconds (process running for 2.969)
+2025-12-22 10:28:56 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:28:56 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:28:56 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 10:28:56 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:28:56 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:28:57 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59bc39e
+2025-12-22 10:28:57 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:29:11 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:29:11 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:29:11 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:29:11 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:30:07 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 12444 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:30:07 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:30:08 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:30:08 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:30:08 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:30:08 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:30:08 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1137 ms
+2025-12-22 10:30:08 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:30:09 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:30:09 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:30:09 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 3.006 seconds (process running for 4.016)
+2025-12-22 10:30:15 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:30:15 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:30:15 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 10:30:16 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:30:16 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:30:16 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cdcd2d1
+2025-12-22 10:30:16 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:30:24 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:30:24 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:30:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:30:24 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:35:00 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 4668 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:35:00 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:35:01 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:35:01 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:35:01 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:35:01 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:35:01 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 968 ms
+2025-12-22 10:35:01 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:35:01 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:35:01 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:35:01 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 1.975 seconds (process running for 3.02)
+2025-12-22 10:35:14 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:35:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:35:14 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 4 ms
+2025-12-22 10:35:14 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:35:14 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:35:14 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:35:15 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f77aec1
+2025-12-22 10:35:15 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:35:15 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:35:18 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:35:18 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:35:22 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1016
+2025-12-22 10:35:22 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:35:25 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:35:25 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:02 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:43:02 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:05 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:43:05 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:16 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:16 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:43:16 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:17 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 10:43:17 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:24 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:24 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:43:24 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:25 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:25 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:43:25 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:26 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1004
+2025-12-22 10:43:26 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:31 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:43:31 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:32 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:43:32 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:43:35 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:43:35 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:45:22 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:45:22 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:45:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:45:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:45:35 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 26244 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:45:35 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:45:36 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:45:36 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:45:36 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:45:36 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:45:36 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 985 ms
+2025-12-22 10:45:37 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:45:37 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:45:37 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:45:37 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.042 seconds (process running for 3.012)
+2025-12-22 10:45:39 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:45:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:45:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 10:45:40 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:45:40 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:45:40 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47084342
+2025-12-22 10:45:40 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:51:07 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:51:07 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:51:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:51:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:51:10 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 20900 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:51:10 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:51:11 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:51:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:51:11 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:51:11 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:51:11 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1007 ms
+2025-12-22 10:51:12 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:51:12 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:51:13 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:51:13 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.64 seconds (process running for 3.745)
+2025-12-22 10:51:16 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:51:16 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:51:16 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-22 10:51:17 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:17 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:51:17 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:51:17 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@505ac13f
+2025-12-22 10:51:17 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:51:17 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:17 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:19 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:51:19 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:19 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:21 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:51:21 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:27 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:51:27 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:27 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:29 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:51:29 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:29 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:30 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:51:30 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:33 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:51:35 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:35 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:51:35 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:35 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:37 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:51:37 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:37 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:38 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:51:38 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:50 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:51:50 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:50 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:50 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:52 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:51:52 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:51:52 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:51:53 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:51:53 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:14 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:53:14 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:17 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:53:17 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:17 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:18 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:53:18 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:18 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:19 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:53:19 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:19 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:20 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:53:20 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:27 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:27 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:53:27 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:27 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:30 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1007
+2025-12-22 10:53:30 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:36 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:36 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:53:36 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:36 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:38 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:53:38 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:38 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:38 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:53:39 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:53:39 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:53:46 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:54:28 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:54:28 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:54:30 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:54:30 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:54:34 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:54:36 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:54:36 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:54:36 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:54:36 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:54:38 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:54:38 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:22 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:55:22 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:22 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:22 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:55:24 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:55:24 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:25 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:25 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:55:25 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:25 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:55:27 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:55:27 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:41 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:55:41 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:55:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:55:41 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:55:45 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 15808 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:55:45 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:55:46 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:55:46 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:55:46 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:55:46 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:55:46 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 948 ms
+2025-12-22 10:55:46 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:55:46 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:55:46 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:55:46 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 1.978 seconds (process running for 2.916)
+2025-12-22 10:55:50 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:55:50 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:55:50 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 10:55:50 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:55:50 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:55:51 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f6c1b37
+2025-12-22 10:55:51 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:55:51 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:57 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:58 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:58 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:55:58 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:55:58 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:56:00 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:56:00 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:03 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:56:03 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:04 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 10:56:04 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:04 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:56:06 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:56:06 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:06 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:56:07 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:56:07 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:22 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:22 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:56:22 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:22 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:56:24 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 10:56:24 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:26 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:26 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 10:56:26 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 10:56:26 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 10:56:44 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:56:44 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:56:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:56:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 10:56:59 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 19880 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 10:56:59 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 10:57:00 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 10:57:00 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:57:00 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 10:57:00 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 10:57:00 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 995 ms
+2025-12-22 10:57:00 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 10:57:01 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 10:57:01 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 10:57:01 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.059 seconds (process running for 3.005)
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d1b7876
+2025-12-22 10:57:03 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 10:57:21 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 10:57:21 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 10:57:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 10:57:21 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 11:01:49 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 5584 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 11:01:49 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 11:01:50 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 11:01:50 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 11:01:50 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 11:01:50 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 11:01:51 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1105 ms
+2025-12-22 11:01:51 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 11:01:51 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 11:01:51 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 11:01:51 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.149 seconds (process running for 3.15)
+2025-12-22 11:02:05 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 11:02:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 11:02:05 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2025-12-22 11:02:05 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:05 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:02:05 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 11:02:06 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27d7292b
+2025-12-22 11:02:06 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 11:02:06 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:06 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:02:08 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:02:08 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:10 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 11:02:10 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:10 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:02:12 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:02:12 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:28 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:02:28 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:28 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:02:30 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:02:30 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:31 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 11:02:31 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:02:31 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:02:34 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:02:34 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:03:13 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 11:03:22 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:06:13 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:12:06 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 11:12:06 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 11:12:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 11:12:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 11:14:39 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 19880 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 11:14:39 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 11:14:40 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 11:14:40 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 11:14:40 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 11:14:40 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 11:14:41 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1152 ms
+2025-12-22 11:14:41 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 11:14:41 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 11:14:41 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 11:14:41 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.698 seconds (process running for 3.881)
+2025-12-22 11:14:48 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 11:14:48 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 11:14:48 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 11:14:48 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:14:48 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 11:14:49 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c81f26d
+2025-12-22 11:14:49 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 11:14:57 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:14:57 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:14:57 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:14:57 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:14:59 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:14:59 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:16:55 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:16:55 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:16:55 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:16:55 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:16:57 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:16:57 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:37 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:37 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:17:37 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:37 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:17:39 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:17:39 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:58 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:58 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:17:58 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:17:58 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:18:00 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:18:00 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:18:31 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:18:31 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:18:31 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:18:31 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:18:32 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:18:32 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:13 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:13 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:19:13 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:13 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:19:15 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:19:15 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:32 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:32 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:19:32 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:19:32 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:19:34 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:19:34 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:24:42 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:24:42 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:24:42 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:24:42 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:24:44 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:24:44 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:24:46 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 11:24:46 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:24:46 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:24:47 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:24:47 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:31:59 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:31:59 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 11:31:59 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:31:59 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:32:00 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 11:32:00 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:32:00 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 11:32:55 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1028
+2025-12-22 11:32:56 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 11:51:46 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 11:51:46 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 11:51:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 11:51:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 22:10:28 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 30432 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 22:10:28 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 22:10:29 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 22:10:29 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:10:29 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 22:10:29 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 22:10:29 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1284 ms
+2025-12-22 22:10:29 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 22:10:30 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:10:30 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 22:10:30 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.608 seconds (process running for 4.191)
+2025-12-22 22:11:03 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 22:11:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 22:11:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 2 ms
+2025-12-22 22:11:03 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:03 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:03 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 22:11:04 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f1dd020
+2025-12-22 22:11:04 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 22:11:04 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:04 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:06 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:06 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:06 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:06 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:06 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:06 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:07 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:07 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:07 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:10 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:10 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:10 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:11 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:11 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:11 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:12 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:12 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:12 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:13 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:13 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:13 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:14 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:14 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:14 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:14 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:14 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:14 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:15 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:15 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:15 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:17 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:17 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:17 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:17 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:17 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:17 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:18 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:18 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:18 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:18 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:18 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:18 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:19 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:19 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:19 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:21 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:21 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:21 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:21 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:11:21 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:21 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:23 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:23 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:23 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:25 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1028
+2025-12-22 22:11:25 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:31 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-根据id删除商品,id为:1028
+2025-12-22 22:11:33 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:33 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:11:33 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:33 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:11:34 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:11:34 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:11:34 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:12:09 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1027
+2025-12-22 22:12:09 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:11 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1027
+2025-12-22 22:12:11 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:18 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-更新商品,商品信息为:product(id=1027, name=我, price=0.0, description=儿童访问, product_image=恶趣味, stock=22, category_id=1)
+2025-12-22 22:12:19 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1027
+2025-12-22 22:12:19 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:24 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:24 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:12:24 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:24 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:12:26 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:12:26 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:26 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:12:27 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:12:27 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:12:27 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:12:54 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 22:14:17 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 22:14:19 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:19 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:14:19 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:20 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:14:20 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 22:14:22 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:22 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:14:22 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:22 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:14:25 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页
+2025-12-22 22:14:25 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:25 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:14:26 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页
+2025-12-22 22:14:26 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:26 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:14:29 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 22:14:29 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:33 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1027
+2025-12-22 22:14:33 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:14:52 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-更新商品,商品信息为:product(id=1027, name=我, price=0.0, description=你哦好久哦, product_image=从vVS的, stock=22, category_id=1)
+2025-12-22 22:14:53 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-根据id获取商品,id为:1027
+2025-12-22 22:14:53 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:16:07 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品
+2025-12-22 22:16:08 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:16:08 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:16:08 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:16:08 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:16:15 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页
+2025-12-22 22:16:15 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:16:15 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数
+2025-12-22 22:16:23 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 22:16:23 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 22:16:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 22:16:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 22:22:41 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 29836 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 22:22:41 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 22:22:43 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 22:22:43 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:22:43 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 22:22:43 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 22:22:43 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1799 ms
+2025-12-22 22:22:43 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 22:22:44 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:22:44 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 22:22:44 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 3.227 seconds (process running for 4.48)
+2025-12-22 22:25:24 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 22:25:24 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 22:25:24 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 6 ms
+2025-12-22 22:25:24 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根据商品分类查询商品,分类id为:1
+2025-12-22 22:25:24 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 22:25:25 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f382fc6
+2025-12-22 22:25:25 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 22:25:29 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-根据商品分类查询商品,分类id为:2
+2025-12-22 22:25:31 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根据商品分类查询商品,分类id为:3
+2025-12-22 22:25:33 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-根据商品分类查询商品,分类id为:4
+2025-12-22 22:28:58 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-根据商品名称查询商品,名称为:y
+2025-12-22 22:30:52 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-根据商品名称查询商品,名称为:200
+2025-12-22 22:31:21 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根据商品名称查询商品,名称为:衣
+2025-12-22 22:31:59 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-根据商品名称查询商品,名称为:手
+2025-12-22 22:32:20 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 22:32:20 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 22:32:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 22:32:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-22 22:46:19 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 13348 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-22 22:46:19 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-22 22:46:20 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-22 22:46:20 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:46:20 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-22 22:46:20 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-22 22:46:20 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1120 ms
+2025-12-22 22:46:21 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-22 22:46:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-22 22:46:21 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-22 22:46:21 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.241 seconds (process running for 3.395)
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:2
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fa21f9b
+2025-12-22 22:46:26 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-22 22:46:27 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:27 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:31 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:1
+2025-12-22 22:46:31 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:31 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:35 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:null
+2025-12-22 22:46:35 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:35 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:37 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:4
+2025-12-22 22:46:37 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:37 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:40 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页,名称:null，分类id:4
+2025-12-22 22:46:40 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:40 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:41 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页,名称:null，分类id:4
+2025-12-22 22:46:41 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:42 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页,名称:null，分类id:4
+2025-12-22 22:46:42 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:42 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:43 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:4
+2025-12-22 22:46:43 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:43 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:52 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:衣，分类id:null
+2025-12-22 22:46:52 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:52 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:46:58 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:手，分类id:null
+2025-12-22 22:46:58 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:46:58 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:47:29 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:47:29 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:null
+2025-12-22 22:47:29 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:47:29 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:47:31 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页,名称:null，分类id:null
+2025-12-22 22:47:31 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:47:31 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:47:32 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页,名称:null，分类id:null
+2025-12-22 22:47:32 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-22 22:47:32 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-22 22:51:39 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-22 22:51:39 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-22 22:51:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-22 22:51:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.

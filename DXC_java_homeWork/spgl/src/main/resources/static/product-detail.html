@@ -104,7 +104,37 @@
                             const categories = categoryData.data;
                             
                             // 使用商品实际图片
-                            const imagePath = `photo/${product.product_image}`;
+                            const productImageContainer = document.querySelector('.product-image');
+                            const productImage = document.querySelector('.product-image img');
+                            let imagePath = '';
+                            
+                            if (product.product_image && productImage) {
+                                imagePath = `photo/${product.product_image}`;
+                                productImage.src = imagePath;
+                                productImage.alt = product.name;
+                                productImage.style.display = 'block'; // 确保图片可见
+                            } else {
+                                // 当没有图片时显示默认占位符
+                                if (productImage) {
+                                    productImage.style.display = 'none'; // 隐藏图片标签
+                                }
+                                // 在容器中添加占位符文本
+                                const placeholder = document.createElement('div');
+                                placeholder.textContent = '📷';
+                                placeholder.style.fontSize = '3rem';
+                                placeholder.style.color = '#bdc3c7';
+                                placeholder.style.display = 'flex';
+                                placeholder.style.alignItems = 'center';
+                                placeholder.style.justifyContent = 'center';
+                                placeholder.style.width = '100%';
+                                placeholder.style.height = '100%';
+                                
+                                // 检查容器中是否已有占位符，如果没有则添加
+                                if (!productImageContainer.querySelector('.placeholder')) {
+                                    placeholder.className = 'placeholder';
+                                    productImageContainer.appendChild(placeholder);
+                                }
+                            }
                             
                             // 获取分类名称
                             const category = categories.find(cat => cat.id === product.category_id);
@@ -115,11 +145,11 @@
                             
                             // 填充商品信息
                             document.querySelector('h2').textContent = product.name;
-                            const productImage = document.querySelector('.product-image img');
-                            if (productImage) {
-                                productImage.src = imagePath;
-                                productImage.alt = product.name;
-                            }
+                            // 不需要再次设置图片，因为之前已经设置过了
+                            // if (productImage) {
+                            //     productImage.src = imagePath;
+                            //     productImage.alt = product.name;
+                            // }
                             document.querySelector('.product-price').textContent = `¥${product.price.toFixed(2)}`;
                             document.querySelector('.product-stock').textContent = `库存: ${product.stock}`;
                             document.querySelector('.product-category').textContent = `分类: ${categoryName}`;

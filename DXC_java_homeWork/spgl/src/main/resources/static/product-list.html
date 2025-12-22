@@ -144,6 +144,14 @@
     <script>
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
+            // 当前页码
+            window.currentPage = 1;
+            // 每页显示的商品数量
+            window.pageSize = 8;
+            // 商品总数
+            window.totalProducts = 0;
+            // 总页数
+            window.totalPages = 0;
             // 加载分类数据
             loadCategories();
             // 加载商品列表
@@ -153,6 +161,7 @@
             const searchForm = document.querySelector('.search-filter form');
             searchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                window.currentPage = 1; // 搜索时重置到第一页
                 loadProducts();
             });
         });
@@ -195,8 +204,8 @@
             const searchValue = searchInput ? searchInput.value : '';
             const categoryValue = categorySelect ? categorySelect.value : '';
             
-            // 构建请求URL
-            let url = '/products';
+            // 构建请求URL（使用分页接口）
+            let url = `/products/page/${window.currentPage}`;
             let params = [];
             if (searchValue) {
                 params.push(`name=${encodeURIComponent(searchValue)}`);
@@ -229,65 +238,99 @@
                             }
                             
                             // 动态生成商品卡片
-                            products.forEach(product => {
-                                const productCard = document.createElement('div');
-                                productCard.className = 'product-card';
+                            if (products.length > 0) {
+                                products.forEach(product => {
+                                    const productCard = document.createElement('div');
+                                    productCard.className = 'product-card';
+                                    
+                                    // 创建商品图片
+                                    const productImage = document.createElement('div');
+                                    productImage.className = 'product-image';
+                                    const img = document.createElement('img');
+                                    img.src = `photo/${product.product_image}`;
+                                    img.alt = product.name;
+                                    img.style.width = '100%';
+                                    img.style.height = '100%';
+                                    img.style.objectFit = 'cover';
+                                    productImage.appendChild(img);
+                                    
+                                    // 创建商品信息
+                                    const productInfo = document.createElement('div');
+                                    productInfo.className = 'product-info';
+                                    
+                                    // 创建商品名称
+                                    const productName = document.createElement('h4');
+                                    productName.className = 'product-name';
+                                    productName.textContent = product.name;
+                                    
+                                    // 创建商品价格
+                                    const productPrice = document.createElement('p');
+                                    productPrice.className = 'product-price';
+                                    productPrice.textContent = `¥${product.price.toFixed(2)}`;
+                                    
+                                    // 创建商品描述
+                                    const productDescription = document.createElement('p');
+                                    productDescription.className = 'product-description';
+                                    productDescription.textContent = product.description;
+                                    
+                                    // 创建商品库存
+                                    const productStock = document.createElement('p');
+                                    productStock.className = 'product-stock';
+                                    productStock.textContent = `库存: ${product.stock}`;
+                                    
+                                    // 创建查看详情按钮
+                                    const viewDetailLink = document.createElement('a');
+                                    viewDetailLink.href = `product-detail.html?id=${product.id}`;
+                                    viewDetailLink.className = 'btn';
+                                    viewDetailLink.textContent = '查看详情';
+                                    
+                                    // 组装商品信息
+                                    productInfo.appendChild(productName);
+                                    productInfo.appendChild(productPrice);
+                                    productInfo.appendChild(productDescription);
+                                    productInfo.appendChild(productStock);
+                                    productInfo.appendChild(viewDetailLink);
+                                    
+                                    // 组装商品卡片
+                                    productCard.appendChild(productImage);
+                                    productCard.appendChild(productInfo);
+                                    
+                                    // 添加到商品网格
+                                    productGrid.appendChild(productCard);
+                                });
                                 
-                                // 创建商品图片
-                                const productImage = document.createElement('div');
-                                productImage.className = 'product-image';
-                                const img = document.createElement('img');
-                                img.src = `photo/${product.product_image}`;
-                                img.alt = product.name;
-                                img.style.width = '100%';
-                                img.style.height = '100%';
-                                img.style.objectFit = 'cover';
-                                productImage.appendChild(img);
-                                
-                                // 创建商品信息
-                                const productInfo = document.createElement('div');
-                                productInfo.className = 'product-info';
-                                
-                                // 创建商品名称
-                                const productName = document.createElement('h4');
-                                productName.className = 'product-name';
-                                productName.textContent = product.name;
-                                
-                                // 创建商品价格
-                                const productPrice = document.createElement('p');
-                                productPrice.className = 'product-price';
-                                productPrice.textContent = `¥${product.price.toFixed(2)}`;
-                                
-                                // 创建商品描述
-                                const productDescription = document.createElement('p');
-                                productDescription.className = 'product-description';
-                                productDescription.textContent = product.description;
-                                
-                                // 创建商品库存
-                                const productStock = document.createElement('p');
-                                productStock.className = 'product-stock';
-                                productStock.textContent = `库存: ${product.stock}`;
-                                
-                                // 创建查看详情按钮
-                                const viewDetailLink = document.createElement('a');
-                                viewDetailLink.href = `product-detail.html?id=${product.id}`;
-                                viewDetailLink.className = 'btn';
-                                viewDetailLink.textContent = '查看详情';
-                                
-                                // 组装商品信息
-                                productInfo.appendChild(productName);
-                                productInfo.appendChild(productPrice);
-                                productInfo.appendChild(productDescription);
-                                productInfo.appendChild(productStock);
-                                productInfo.appendChild(viewDetailLink);
-                                
-                                // 组装商品卡片
-                                productCard.appendChild(productImage);
-                                productCard.appendChild(productInfo);
-                                
-                                // 添加到商品网格
-                                productGrid.appendChild(productCard);
-                            });
+                                // 获取商品总数并更新分页控件
+                                let countUrl = '/products/number';
+                                let countParams = [];
+                                if (searchValue) {
+                                    countParams.push(`name=${encodeURIComponent(searchValue)}`);
+                                }
+                                if (categoryValue) {
+                                    countParams.push(`category_id=${categoryValue}`);
+                                }
+                                if (countParams.length > 0) {
+                                    countUrl += '?' + countParams.join('&');
+                                }
+                                fetch(countUrl)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.code === 200) {
+                                            window.totalProducts = data.data;
+                                            // 计算总页数
+                                            window.totalPages = Math.ceil(window.totalProducts / window.pageSize);
+                                            // 更新分页控件
+                                            updatePagination();
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('获取商品总数时发生错误:', error);
+                                    });
+                            } else {
+                                // 没有商品时显示提示
+                                productGrid.innerHTML = '<p style="text-align: center; width: 100%; padding: 20px;">暂无商品数据</p>';
+                                // 更新分页控件（隐藏或显示空状态）
+                                updatePagination();
+                            }
                         })
                         .catch(error => {
                             console.error('获取分类数据时发生错误:', error);
@@ -300,6 +343,159 @@
                     console.error('获取商品列表时发生错误:', error);
                     alert('获取商品列表时发生错误');
                 });
+        }
+        
+        // 更新分页控件
+        function updatePagination() {
+            const pagination = document.querySelector('.pagination');
+            
+            // 清空现有分页按钮
+            pagination.innerHTML = '';
+            
+            // 创建上一页按钮
+            const prevBtn = document.createElement('a');
+            prevBtn.href = '#';
+            prevBtn.className = 'btn';
+            prevBtn.textContent = '上一页';
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (window.currentPage > 1) {
+                    window.currentPage--;
+                    loadProducts();
+                }
+            });
+            // 如果是第一页，禁用上一页按钮
+            if (window.currentPage === 1) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.pointerEvents = 'none';
+            }
+            pagination.appendChild(prevBtn);
+            
+            // 创建页码按钮
+            if (window.totalPages > 0) {
+                // 计算显示的页码范围
+                let startPage = Math.max(1, window.currentPage - 1);
+                let endPage = Math.min(window.totalPages, window.currentPage + 1);
+                
+                // 确保至少显示3个页码（如果总页数大于3）
+                if (endPage - startPage < 2) {
+                    if (startPage === 1) {
+                        endPage = Math.min(window.totalPages, startPage + 2);
+                    } else if (endPage === window.totalPages) {
+                        startPage = Math.max(1, endPage - 2);
+                    }
+                }
+                
+                // 显示第一个页码（如果不是起始页码）
+                if (startPage > 1) {
+                    const firstPageBtn = document.createElement('a');
+                    firstPageBtn.href = '#';
+                    firstPageBtn.className = 'btn';
+                    firstPageBtn.textContent = '1';
+                    
+                    // 如果是当前页，高亮显示
+                    if (1 === window.currentPage) {
+                        firstPageBtn.style.backgroundColor = '#4CAF50';
+                        firstPageBtn.style.color = 'white';
+                    }
+                    
+                    // 页码按钮点击事件
+                    firstPageBtn.addEventListener('click', (function(pageNum) {
+                        return function(e) {
+                            e.preventDefault();
+                            window.currentPage = pageNum;
+                            loadProducts();
+                        };
+                    })(1));
+                    
+                    pagination.appendChild(firstPageBtn);
+                    
+                    // 如果第一个页码和起始页码之间有间隔，显示省略号
+                    if (startPage > 2) {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.textContent = '...';
+                        ellipsis.style.margin = '0 5px';
+                        pagination.appendChild(ellipsis);
+                    }
+                }
+                
+                // 显示中间的页码
+                for (let i = startPage; i <= endPage; i++) {
+                    const pageBtn = document.createElement('a');
+                    pageBtn.href = '#';
+                    pageBtn.className = 'btn';
+                    pageBtn.textContent = i;
+                    
+                    // 如果是当前页，高亮显示
+                    if (i === window.currentPage) {
+                        pageBtn.style.backgroundColor = '#4CAF50';
+                        pageBtn.style.color = 'white';
+                    }
+                    
+                    // 页码按钮点击事件
+                    pageBtn.addEventListener('click', (function(pageNum) {
+                        return function(e) {
+                            e.preventDefault();
+                            window.currentPage = pageNum;
+                            loadProducts();
+                        };
+                    })(i));
+                    
+                    pagination.appendChild(pageBtn);
+                }
+                
+                // 显示最后一个页码（如果不是结束页码）
+                if (endPage < window.totalPages) {
+                    // 如果结束页码和最后一个页码之间有间隔，显示省略号
+                    if (endPage < window.totalPages - 1) {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.textContent = '...';
+                        ellipsis.style.margin = '0 5px';
+                        pagination.appendChild(ellipsis);
+                    }
+                    
+                    const lastPageBtn = document.createElement('a');
+                    lastPageBtn.href = '#';
+                    lastPageBtn.className = 'btn';
+                    lastPageBtn.textContent = window.totalPages;
+                    
+                    // 如果是当前页，高亮显示
+                    if (window.totalPages === window.currentPage) {
+                        lastPageBtn.style.backgroundColor = '#4CAF50';
+                        lastPageBtn.style.color = 'white';
+                    }
+                    
+                    // 页码按钮点击事件
+                    lastPageBtn.addEventListener('click', (function(pageNum) {
+                        return function(e) {
+                            e.preventDefault();
+                            window.currentPage = pageNum;
+                            loadProducts();
+                        };
+                    })(window.totalPages));
+                    
+                    pagination.appendChild(lastPageBtn);
+                }
+            }
+            
+            // 创建下一页按钮
+            const nextBtn = document.createElement('a');
+            nextBtn.href = '#';
+            nextBtn.className = 'btn';
+            nextBtn.textContent = '下一页';
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (window.currentPage < window.totalPages) {
+                    window.currentPage++;
+                    loadProducts();
+                }
+            });
+            // 如果是最后一页，禁用下一页按钮
+            if (window.currentPage >= window.totalPages) {
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.pointerEvents = 'none';
+            }
+            pagination.appendChild(nextBtn);
         }
     </script>
 </body>
