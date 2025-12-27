@@ -20,7 +20,7 @@ public class ProductServiceImp implements ProductService {
         if (name == null && category_id == null) {
             return productMapper.selectAll();
         }
-        // 如果有条件，我们需要构建查询条件
+        // 如果有条件，需要构建查询条件
         // 这里可以调用新的mapper方法，或者在service层过滤
         // 为了简化，先使用这种方式，后面再优化
         List<product> allProducts = productMapper.selectAll();
@@ -78,4 +78,4 @@ public class ProductServiceImp implements ProductService {
         return productMapper.selectByName("%" + name + "%");
     }
 }
-
+

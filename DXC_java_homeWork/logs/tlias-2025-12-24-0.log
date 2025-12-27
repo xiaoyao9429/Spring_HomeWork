@@ -1,0 +1,177 @@
+2025-12-24 21:41:19 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 25080 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-24 21:41:19 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-24 21:41:21 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-24 21:41:21 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-24 21:41:21 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-24 21:41:21 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-24 21:41:21 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1640 ms
+2025-12-24 21:41:21 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-24 21:41:22 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-24 21:41:22 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-24 21:41:22 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 3.211 seconds (process running for 4.851)
+2025-12-24 21:42:39 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-24 21:42:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-24 21:42:39 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 1 ms
+2025-12-24 21:42:39 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-24 21:42:39 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品,名称:null,分类id:null
+2025-12-24 21:42:39 [http-nio-8080-exec-4] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-24 21:42:40 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]-Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.mybatis.spring.MyBatisSystemException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+### The error may exist in com/zhiwen/spgl/DateBase/productMapper.java (best guess)
+### The error may involve com.zhiwen.spgl.DateBase.productMapper.selectAll
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection] with root cause
+com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:76)
+	at com.mysql.cj.protocol.a.authentication.CachingSha2PasswordPlugin.nextAuthenticationStep(CachingSha2PasswordPlugin.java:122)
+	at com.mysql.cj.protocol.a.authentication.CachingSha2PasswordPlugin.nextAuthenticationStep(CachingSha2PasswordPlugin.java:40)
+	at com.mysql.cj.protocol.a.NativeAuthenticationProvider.proceedHandshakeWithPluggableAuthentication(NativeAuthenticationProvider.java:436)
+	at com.mysql.cj.protocol.a.NativeAuthenticationProvider.connect(NativeAuthenticationProvider.java:206)
+	at com.mysql.cj.protocol.a.NativeProtocol.connect(NativeProtocol.java:1332)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:155)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:964)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:83)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:70)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:348)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:64)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:348)
+	at jdk.proxy2/jdk.proxy2.$Proxy69.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:209)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.selectAll(Unknown Source)
+	at com.zhiwen.spgl.Service.Implement.ProductServiceImp.selectAllProduct(ProductServiceImp.java:21)
+	at com.zhiwen.spgl.Controller.productController.productList(productController.java:27)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:622)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-12-24 21:43:02 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品,名称:null,分类id:null
+2025-12-24 21:43:02 [http-nio-8080-exec-7] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-24 21:43:02 [http-nio-8080-exec-7] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2714d657
+2025-12-24 21:43:02 [http-nio-8080-exec-7] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-24 21:43:06 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:43:06 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:null
+2025-12-24 21:43:06 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:43:06 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-24 21:43:09 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第2页,名称:null，分类id:null
+2025-12-24 21:43:09 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:43:09 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-24 21:43:09 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第3页,名称:null，分类id:null
+2025-12-24 21:43:09 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:43:09 [http-nio-8080-exec-8] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-24 21:43:18 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:1
+2025-12-24 21:43:18 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:43:18 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:1
+2025-12-24 21:46:56 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品,名称:null,分类id:null
+2025-12-24 21:46:56 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 21:46:58 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品,名称:null,分类id:null
+2025-12-24 21:47:04 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-24 21:47:04 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-24 21:47:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-24 21:47:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
+2025-12-24 22:13:10 [main] INFO  com.zhiwen.spgl.SpglApplication-Starting SpglApplication using Java 21.0.8 with PID 9984 (D:\JavaCode\DXC_java_homeWork\spgl\target\classes started by Lenovo in D:\JavaCode\DXC_java_homeWork)
+2025-12-24 22:13:10 [main] INFO  com.zhiwen.spgl.SpglApplication-No active profile set, falling back to 1 default profile: "default"
+2025-12-24 22:13:11 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat initialized with port 8080 (http)
+2025-12-24 22:13:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-24 22:13:11 [main] INFO  org.apache.catalina.core.StandardService-Starting service [Tomcat]
+2025-12-24 22:13:11 [main] INFO  org.apache.catalina.core.StandardEngine-Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-24 22:13:11 [main] INFO  o.s.b.w.c.servlet.WebApplicationContextInitializer-Root WebApplicationContext: initialization completed in 1230 ms
+2025-12-24 22:13:11 [main] INFO  o.s.b.w.autoconfigure.WelcomePageHandlerMapping-Adding welcome page: class path resource [static/index.html]
+2025-12-24 22:13:11 [main] INFO  org.apache.coyote.http11.Http11NioProtocol-Starting ProtocolHandler ["http-nio-8080"]
+2025-12-24 22:13:12 [main] INFO  org.springframework.boot.tomcat.TomcatWebServer-Tomcat started on port 8080 (http) with context path '/'
+2025-12-24 22:13:12 [main] INFO  com.zhiwen.spgl.SpglApplication-Started SpglApplication in 2.406 seconds (process running for 3.693)
+2025-12-24 22:14:19 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-24 22:14:19 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Initializing Servlet 'dispatcherServlet'
+2025-12-24 22:14:19 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet-Completed initialization in 3 ms
+2025-12-24 22:14:19 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-根路径跳转
+2025-12-24 22:14:19 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取所有商品,名称:null,分类id:null
+2025-12-24 22:14:19 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Starting...
+2025-12-24 22:14:20 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool-HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@766d11e1
+2025-12-24 22:14:20 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Start completed.
+2025-12-24 22:14:26 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 22:14:26 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:null
+2025-12-24 22:14:26 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 22:14:26 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:null
+2025-12-24 22:14:33 [http-nio-8080-exec-9] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:衣，分类id:null
+2025-12-24 22:14:33 [http-nio-8080-exec-10] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 22:14:33 [http-nio-8080-exec-1] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:衣,分类id:null
+2025-12-24 22:14:38 [http-nio-8080-exec-2] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:手，分类id:null
+2025-12-24 22:14:38 [http-nio-8080-exec-4] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 22:14:38 [http-nio-8080-exec-6] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:手,分类id:null
+2025-12-24 22:14:43 [http-nio-8080-exec-3] INFO  com.zhiwen.spgl.Controller.productController-分页查询商品,第1页,名称:null，分类id:1
+2025-12-24 22:14:43 [http-nio-8080-exec-7] INFO  com.zhiwen.spgl.Controller.categoryController-获取所有分类
+2025-12-24 22:14:43 [http-nio-8080-exec-5] INFO  com.zhiwen.spgl.Controller.productController-获取商品总数,名称:null,分类id:1
+2025-12-24 22:34:49 [SpringApplicationShutdownHook] INFO  org.springframework.boot.tomcat.GracefulShutdown-Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-24 22:34:49 [tomcat-shutdown] INFO  org.springframework.boot.tomcat.GracefulShutdown-Graceful shutdown complete
+2025-12-24 22:34:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown initiated...
+2025-12-24 22:34:49 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource-HikariPool-1 - Shutdown completed.
